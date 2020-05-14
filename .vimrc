@@ -137,6 +137,9 @@ set foldlevel=99 " Open all folds by default, set to 0 to close by default
 " lightline
 set laststatus=2 " status bar fix
 
+" Spell checker
+set spell
+
 " syntactic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
