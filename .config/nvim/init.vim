@@ -42,7 +42,7 @@ Plug 'scrooloose/syntastic' " syntax
 Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing golang files
 Plug 'airblade/vim-gitgutter' " Git integration.
 Plug 'tpope/vim-fugitive' " Git integration.
-Plug 'mrk21/yaml-vim' " Yaml syntx/indent
+Plug 'mrk21/yaml-vim' " Yaml syntax/indent
 " Plug 'Yggdroot/indentLine'
 call plug#end()
 
@@ -54,6 +54,9 @@ if vim_plug_just_installed
 endif
 
 " =============================================================================
+
+" Remember last cursor position
+au BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .config/nvim/init.vim source %
