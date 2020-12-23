@@ -115,6 +115,8 @@ set timeoutlen=1000 ttimeoutlen=0
 " Update sign column every quarter second
 set updatetime=250
 
+" Spelling on
+set spell
 "" PLUGIN CONFIGURATION -------------------------------------------------------
 
 " color scheme
