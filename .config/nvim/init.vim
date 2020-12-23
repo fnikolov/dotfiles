@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged')
 "" PLUGINS --------------------------------------------------------------------
 
 Plug 'morhetz/gruvbox' " Colors
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree - F2
 Plug 'pseewald/vim-anyfold' " folding c+f
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim'
@@ -54,16 +53,10 @@ if vim_plug_just_installed
     :PlugInstall
 endif
 
-
 " =============================================================================
 
-
-
-" nerdtree
-" autocmd vimenter * NERDTree
-
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .config/nvim/init.vim source %
 set number
 
 " Show whitespace, MUST be inserted BEFORE the colorscheme command
@@ -146,39 +139,32 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_go_checkers = ['govet', 'errcheck', 'go']
 let g:go_version_warning = 0
 
+" Supertab will not add new line on completion
+let g:SuperTabCrMapping=1
+
 "" REMAPPINGS -----------------------------------------------------------------
 
 " fzf set location to ~/repos
 noremap <C-P> :Files ~/<CR>
 " nnoremap <silent> <C-p> :FZF ~/work/<CR>
 
-" nerdtree toggle
-nmap <F2> :NERDTreeToggle ~/work/<CR>
+" GitGutter toggle
 nmap <F3> :GitGutterSignsToggle<CR>
-
 
 " folding toggle
 noremap <C-F> :set foldlevel=0<CR>
 noremap <C-G> :set foldlevel=99<CR>
 
-" generic quick quit
-noremap <C-Q> :quit<CR>
-
 " generic toggle line numbers
 noremap <C-L> :set number!<CR>
 
-" generic quick save
-" :nmap <c-s> :w<CR>
-" :imap <c-s> <Esc>:w<CR>a
-
-" generic quick save
 :nmap <c-s> :SyntasticToggleMode<CR>
 :imap <c-s> <Esc>:SyntasticToggleMode<CR>a
 
 " generic disable ex mode
 noremap Q <NOP>
 
-" Togle line wrap
+" Toggle line wrap
 :map <Leader>w :set wrap!<CR>
 
 " Toggle filetype = yaml
