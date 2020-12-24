@@ -1,0 +1,5 @@
+.config/.config
+.config/bpytop/
+.config/nvim/.netrwhist
+.config/nvim/autoload/
+.config/nvim/plugged/

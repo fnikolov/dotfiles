@@ -8,12 +8,17 @@ sudo chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
 # Install kube-ps1
-mkdir ~/bin
+mkdir -p ~/bin
 cd ~/bin
 git clone git@github.com:jonmosco/kube-ps1.git
 
 ln -s ~/dotfiles/.config        ~/.config
 ln -s ~/dotfiles/.bash_aliases  ~/.bash_aliases
 #ln -s ~/dotfiles/.vimrc         ~/.vimrc
-echo "source ~/dotfiles/.bash_profile" >> ~/.bashrc
+
+if ! grep -Fxq "source ~/dotfiles/.bash_profile" ~/.bashrc
+then
+    echo "source ~/dotfiles/.bash_profile" >> ~/.bashrc
+fi
+
 
