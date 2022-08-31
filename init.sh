@@ -14,6 +14,7 @@ fi
 if $PCK_MAN=dnf; then
   sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
   sudo dnf install -y neovim python3-neovim
+fi
 
 sudo $PCK_MAN update
 sudo $PCK_MAN upgrade -y
@@ -37,5 +38,3 @@ if ! grep -Fxq "source ~/dotfiles/.bash_profile" ~/.bashrc
 then
     echo "source ~/dotfiles/.bash_profile" >> ~/.bashrc
 fi
-
-
