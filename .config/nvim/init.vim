@@ -44,6 +44,7 @@ Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing gol
 Plug 'airblade/vim-gitgutter' " Git integration.
 Plug 'tpope/vim-fugitive' " Git integration.
 Plug 'mrk21/yaml-vim' " Yaml syntax/indent
+Plug 'hashivim/vim-terraform' " Terraform syntax
 " Plug 'Yggdroot/indentLine'
 call plug#end()
 
@@ -135,7 +136,24 @@ syntax on " required
 set foldlevel=99 " Open all folds by default, set to 0 to close by default
 
 " lightline
-set laststatus=2 " status bar fix
+"set laststatus=2 " status bar fix
+
+set mouse=
+" Show relative file path
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
 
 " syntactic
 let g:syntastic_always_populate_loc_list = 1
@@ -150,9 +168,10 @@ let g:SuperTabCrMapping=1
 
 "" REMAPPINGS -----------------------------------------------------------------
 
-" fzf set location to ~/repos
-noremap <C-P> :Files ~/<CR>
-" nnoremap <silent> <C-p> :FZF ~/work/<CR>
+" fzf set location to ~/flutter
+noremap <C-P> :Files ~/flutter/<CR>
+" let $FZF_DEFAULT_COMMAND = 'find "$PWD" -name ".*" -prune -o -print'
+" nnoremap <silent> <C-p> :FZF ~/flutter/<CR>
 
 " GitGutter toggle
 nmap <F3> :GitGutterSignsToggle<CR>
@@ -175,3 +194,4 @@ noremap Q <NOP>
 
 " Toggle filetype = yaml
 :map <Leader>y :set ft=yaml<CR>
+
