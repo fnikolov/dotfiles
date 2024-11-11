@@ -45,6 +45,7 @@ Plug 'airblade/vim-gitgutter' " Git integration.
 Plug 'tpope/vim-fugitive' " Git integration.
 Plug 'mrk21/yaml-vim' " Yaml syntax/indent
 Plug 'hashivim/vim-terraform' " Terraform syntax
+Plug 'bling/vim-bufferline' " Show buffers
 " Plug 'Yggdroot/indentLine'
 call plug#end()
 
@@ -170,6 +171,7 @@ let g:SuperTabCrMapping=1
 
 " fzf set location to ~/flutter
 noremap <C-P> :Files ~/flutter/<CR>
+noremap <C-B> :Buffers <CR>
 " let $FZF_DEFAULT_COMMAND = 'find "$PWD" -name ".*" -prune -o -print'
 " nnoremap <silent> <C-p> :FZF ~/flutter/<CR>
 
