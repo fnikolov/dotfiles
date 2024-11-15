@@ -33,16 +33,16 @@ call plug#begin('~/.config/nvim/plugged')
 "" PLUGINS -------------------------------------------------------------------
 
 Plug 'morhetz/gruvbox' " Colors
-Plug 'pseewald/vim-anyfold' " folding c+f
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
-Plug 'junegunn/fzf.vim'
+Plug 'pseewald/vim-anyfold' " folding c+a | c+f/g | c+[j/]k
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " c+p | c+b
 Plug 'itchyny/lightline.vim' " statusbar
 Plug 'ervandew/supertab' " tabbing
 Plug 'davidhalter/jedi-vim' " completion
 Plug 'scrooloose/syntastic' " syntax
 Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing golang files
 Plug 'airblade/vim-gitgutter' " Git integration.
-Plug 'tpope/vim-fugitive' " Git integration.
+Plug 'tpope/vim-fugitive' " Git integration. :0G
 Plug 'mrk21/yaml-vim' " Yaml syntax/indent
 Plug 'hashivim/vim-terraform' " Terraform syntax
 Plug 'bling/vim-bufferline' " Show buffers
