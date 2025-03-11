@@ -1,6 +1,7 @@
 ## Aliases
 alias ll='ls -lG'
 alias vim='nvim'
+alias vimdiff='nvim -d'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 FPATH="$HOME/.docker/completions:$FPATH"
@@ -54,3 +55,5 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 fpath=($fpath ~/.zsh/completion)
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
